@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor(){
+                super()
+                this.state = {
+                    movies: ['蜘蛛侠', '变形金刚', '奇异博士', '功夫']
+                }
+            }
+
+            render(){
+                let movieList = []
+                for (let i of this.state.movies) {
+                    movieList.push(<li>{i}</li>)  // 注意数组里的不是字符串，而是JSX
+                }
+                return (
+                    <div>
+                        <h1>电影列表</h1>
+                        <ul>
+                            {movieList}
+                        </ul>
+                    </div>
+                )
+            }
+        }
+        
+        ReactDOM.render(<App />, document.querySelector('#app'))
+
+    </script>
+</body>
+</html>
