@@ -22,20 +22,31 @@
                 }
             }
 
-            render(){
-                let movieList = []
-                for (let i of this.state.movies) {
-                    movieList.push(<li>{i}</li>)  // 注意数组里的不是字符串，而是JSX
-                }
+            render() {
                 return (
                     <div>
                         <h1>电影列表</h1>
                         <ul>
-                            {movieList}
+                            {this.state.movies.map(item => <li key={item}>{item}</li>)}
                         </ul>
                     </div>
                 )
             }
+
+            // render(){
+            //     let movieList = []
+            //     for (let i of this.state.movies) {
+            //         movieList.push(<li>{i}</li>)  // 注意数组里的不是字符串，而是JSX
+            //     }
+            //     return (
+            //         <div>
+            //             <h1>电影列表</h1>
+            //             <ul>
+            //                 {movieList}
+            //             </ul>
+            //         </div>
+            //     )
+            // }
         }
         
         ReactDOM.render(<App />, document.querySelector('#app'))
