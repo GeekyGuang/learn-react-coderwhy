@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person {
+            constructor(name, age){
+                this.name = name
+                this.age = age
+            }
+
+            sayHi(){
+                console.log(`hello ${this.name}`)
+            }
+        }
+
+        const p = new Person('jack', 18)
+        p.sayHi()
+
+        let fn = p.sayHi
+        // fn()  // 报错
+        const obj = {
+            name: 'rose'
+        }
+
+        fn.call(obj)   // rose
+        
+        fn = fn.bind(obj)
+        fn()
+    </script>
+</body>
+</html>
