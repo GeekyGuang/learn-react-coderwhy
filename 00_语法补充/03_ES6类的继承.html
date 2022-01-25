@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person {
+            constructor(name, age){
+                this.name = name
+                this.age = age
+            }
+
+            sayHi(){
+                console.log(`hello ${this.name}`)
+            }
+        }
+
+        class Student extends Person {
+            constructor(name, age, grade) {
+                super(name,age)  // constructor 必须调用父类
+                // this.age = 111 可以重写属性
+                this.grade = grade
+            }
+
+            study() {
+                console.log('good good study')
+            }
+        }
+
+        const lilei = new Student('lilei',18, 2)
+        console.log(lilei.age)
+        lilei.sayHi()
+    </script>
+</body>
+</html>
