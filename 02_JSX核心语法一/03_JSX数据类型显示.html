@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor(){
+        super()
+        this.state = {
+          name: 'jack',
+          age: 18,
+          arr: ['a', 'b', 'c'],
+
+          flag: true,
+          n: null,
+          u: undefined,
+
+          obj: {
+            name: 'jack',
+            age: 18
+          }
+        }
+      }
+
+      render(){
+        return (
+          <div>
+          {/* string, number, array 可以正常显示 */}
+          {this.state.name}
+          {this.state.age}
+          {this.state.arr}
+           
+          {/* boolean, null, undefined 被忽略 */}
+          {this.state.flag}
+          {this.state.n}
+          {this.state.u}
+
+          {/* 将boolean, null, undefined 转化为字符串可显示 */}
+          {this.state.flag.toString()}
+          {this.state.n + ""}
+          {this.state.u + ""}
+           
+          {/* 对象不能作为JSX的子项 */}
+          {/* this.state.obj */}
+
+          {this.state.flag ? <h2>hello</h2> : null}
+          {this.state.flag && <h2>hello</h2>}
+          {this.getInfo()}
+          </div>
+        )
+      }
+
+      getInfo(){
+      return (<div>{this.state.name}</div>)
+    }
+    }
+
+
+    
+    ReactDOM.render(<App />, document.querySelector('#app'))
+
+  </script>
+</body>
+</html>
