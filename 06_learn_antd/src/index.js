@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+// import App from './App';
 import 'antd/dist/antd.less'
+import App from './comment/App'
 
 ReactDOM.render(
     <App />,
