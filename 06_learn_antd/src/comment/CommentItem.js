@@ -1,6 +1,7 @@
 import {Comment, Tooltip, Avatar} from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
 import * as dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
 const relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
 
@@ -22,7 +23,7 @@ const CommentItem = (props) => {
       }
       datetime={
         <Tooltip title={createTime}>
-          <span>{dayjs(createTime).fromNow()}</span>
+          <span>{dayjs(createTime).locale('zh-cn').fromNow()}</span>
         </Tooltip>
       }
     />
