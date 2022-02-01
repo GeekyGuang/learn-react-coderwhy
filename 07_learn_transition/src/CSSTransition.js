@@ -2,17 +2,15 @@ import {useState} from 'react'
 import {CSSTransition} from 'react-transition-group'
 
 const CSSTransitionComponent = () => {
-  const [inProp, setInProp] = useState(false);
+  const [inProp, setInProp] = useState(true);
   return (
     <div>
-      <button type="button" onClick={() => setInProp(true)}>
+      <button type="button" onClick={() => setInProp(!inProp)}>
         Click to Enter
       </button>
-      <CSSTransition in={inProp} timeout={200} classNames="my-node">
+      <CSSTransition appear in={inProp} timeout={200} classNames="my-node" unmountOnExit={true}>
         <div>
-        {inProp ? <div>
           "I'll receive my-node-* classes"
-        </div> : ''}
         </div>
       </CSSTransition>
 
