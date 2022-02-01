@@ -1,7 +1,9 @@
+import Count from "./01_useState";
+
 function App() {
   return (
     <div className="App">
-      app
+      <Count />
     </div>
   );
 }
